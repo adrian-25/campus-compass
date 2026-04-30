@@ -14,7 +14,185 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      colleges: {
+        Row: {
+          affiliation: string | null
+          city: string
+          created_at: string
+          established: number | null
+          fees_per_year: number
+          id: string
+          image_url: string | null
+          name: string
+          rating: number
+          state: string
+          top_course: string | null
+          type: string
+        }
+        Insert: {
+          affiliation?: string | null
+          city: string
+          created_at?: string
+          established?: number | null
+          fees_per_year: number
+          id?: string
+          image_url?: string | null
+          name: string
+          rating: number
+          state: string
+          top_course?: string | null
+          type: string
+        }
+        Update: {
+          affiliation?: string | null
+          city?: string
+          created_at?: string
+          established?: number | null
+          fees_per_year?: number
+          id?: string
+          image_url?: string | null
+          name?: string
+          rating?: number
+          state?: string
+          top_course?: string | null
+          type?: string
+        }
+        Relationships: []
+      }
+      courses: {
+        Row: {
+          college_id: string
+          duration: string
+          fees: number
+          id: string
+          name: string
+        }
+        Insert: {
+          college_id: string
+          duration: string
+          fees: number
+          id?: string
+          name: string
+        }
+        Update: {
+          college_id?: string
+          duration?: string
+          fees?: number
+          id?: string
+          name?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "courses_college_id_fkey"
+            columns: ["college_id"]
+            isOneToOne: false
+            referencedRelation: "colleges"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      placements: {
+        Row: {
+          avg_package: number
+          college_id: string
+          highest_package: number
+          id: string
+          placement_pct: number
+          top_recruiters: string[]
+        }
+        Insert: {
+          avg_package: number
+          college_id: string
+          highest_package: number
+          id?: string
+          placement_pct: number
+          top_recruiters: string[]
+        }
+        Update: {
+          avg_package?: number
+          college_id?: string
+          highest_package?: number
+          id?: string
+          placement_pct?: number
+          top_recruiters?: string[]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "placements_college_id_fkey"
+            columns: ["college_id"]
+            isOneToOne: true
+            referencedRelation: "colleges"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      reviews: {
+        Row: {
+          college_id: string
+          comment: string
+          created_at: string
+          id: string
+          rating: number
+          reviewer_name: string
+          year: number
+        }
+        Insert: {
+          college_id: string
+          comment: string
+          created_at?: string
+          id?: string
+          rating: number
+          reviewer_name: string
+          year: number
+        }
+        Update: {
+          college_id?: string
+          comment?: string
+          created_at?: string
+          id?: string
+          rating?: number
+          reviewer_name?: string
+          year?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reviews_college_id_fkey"
+            columns: ["college_id"]
+            isOneToOne: false
+            referencedRelation: "colleges"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      saved_colleges: {
+        Row: {
+          college_id: string
+          created_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          college_id: string
+          created_at?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          college_id?: string
+          created_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "saved_colleges_college_id_fkey"
+            columns: ["college_id"]
+            isOneToOne: false
+            referencedRelation: "colleges"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
