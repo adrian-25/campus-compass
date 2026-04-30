@@ -21,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Home />} />
           <Route path="/college/:id" element={<CollegeDetail />} />
           <Route path="/compare" element={<Compare />} />
+          <Route path="/predictor" element={<Predictor />} />
           <Route path="/saved" element={<Saved />} />
           <Route path="/login" element={<AuthPage mode="login" />} />
           <Route path="/signup" element={<AuthPage mode="signup" />} />
