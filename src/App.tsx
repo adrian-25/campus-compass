@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import CollegeDetail from "./pages/CollegeDetail";
 import Compare from "./pages/Compare";
 import Saved from "./pages/Saved";
+import Predictor from "./pages/Predictor";
 import AuthPage from "./pages/AuthPage";
 import NotFound from "./pages/NotFound";
 
