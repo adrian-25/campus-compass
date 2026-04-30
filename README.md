@@ -28,7 +28,7 @@ CampusIQ helps students discover and compare colleges across India. Compare 1000
    ```bash
    npm run dev
    ```
-5. Open (http://localhost:8080](https://campus-compass-virid.vercel.app/)) in your browser
+5. Open ([http://localhost:8080]) in your browser
 
 ## Available Scripts
 
