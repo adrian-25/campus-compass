@@ -14,6 +14,41 @@ export type Database = {
   }
   public: {
     Tables: {
+      answers: {
+        Row: {
+          body: string
+          created_at: string
+          id: string
+          question_id: string
+          user_email: string
+          user_id: string
+        }
+        Insert: {
+          body: string
+          created_at?: string
+          id?: string
+          question_id: string
+          user_email: string
+          user_id: string
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          id?: string
+          question_id?: string
+          user_email?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "answers_question_id_fkey"
+            columns: ["question_id"]
+            isOneToOne: false
+            referencedRelation: "questions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       colleges: {
         Row: {
           affiliation: string | null
@@ -133,6 +168,44 @@ export type Database = {
             foreignKeyName: "placements_college_id_fkey"
             columns: ["college_id"]
             isOneToOne: true
+            referencedRelation: "colleges"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      questions: {
+        Row: {
+          body: string | null
+          college_id: string
+          created_at: string
+          id: string
+          title: string
+          user_email: string
+          user_id: string
+        }
+        Insert: {
+          body?: string | null
+          college_id: string
+          created_at?: string
+          id?: string
+          title: string
+          user_email: string
+          user_id: string
+        }
+        Update: {
+          body?: string | null
+          college_id?: string
+          created_at?: string
+          id?: string
+          title?: string
+          user_email?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "questions_college_id_fkey"
+            columns: ["college_id"]
+            isOneToOne: false
             referencedRelation: "colleges"
             referencedColumns: ["id"]
           },

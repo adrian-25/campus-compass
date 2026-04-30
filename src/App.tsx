@@ -7,6 +7,7 @@ import CollegeDetail from "./pages/CollegeDetail";
 import Compare from "./pages/Compare";
 import Saved from "./pages/Saved";
 import Predictor from "./pages/Predictor";
+import Discussions from "./pages/Discussions";
 import AuthPage from "./pages/AuthPage";
 import NotFound from "./pages/NotFound";
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/college/:id" element={<CollegeDetail />} />
           <Route path="/compare" element={<Compare />} />
           <Route path="/predictor" element={<Predictor />} />
+          <Route path="/discussions" element={<Discussions />} />
           <Route path="/saved" element={<Saved />} />
           <Route path="/login" element={<AuthPage mode="login" />} />
           <Route path="/signup" element={<AuthPage mode="signup" />} />
