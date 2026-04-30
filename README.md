@@ -40,7 +40,7 @@ CampusIQ helps students discover and compare colleges across India. Compare 1000
 
 ## Live URL
 
-Coming soon...
+(https://campus-compass-virid.vercel.app/)
 
 ## Contributing
 
