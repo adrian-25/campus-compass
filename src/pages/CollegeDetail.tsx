@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { Navbar } from "@/components/Navbar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { DiscussionPanel } from "@/components/Discussion";
 import { Button } from "@/components/ui/button";
 import { useSavedColleges } from "@/hooks/useSavedColleges";
 import { useCompare } from "@/hooks/useCompare";
@@ -147,11 +148,12 @@ const CollegeDetail = () => {
         </div>
 
         <Tabs defaultValue="overview" className="mt-10">
-          <TabsList className="bg-card border border-border h-auto p-1">
+          <TabsList className="bg-card border border-border h-auto p-1 flex-wrap">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="courses">Courses</TabsTrigger>
             <TabsTrigger value="placements">Placements</TabsTrigger>
             <TabsTrigger value="reviews">Reviews ({data.reviews?.length ?? 0})</TabsTrigger>
+            <TabsTrigger value="discussion">Discussion</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="mt-6 animate-fade-up">
@@ -232,6 +234,10 @@ const CollegeDetail = () => {
                 <p className="text-muted-foreground">No reviews yet.</p>
               )}
             </div>
+          </TabsContent>
+
+          <TabsContent value="discussion" className="mt-6 animate-fade-up">
+            <DiscussionPanel collegeId={data.id} />
           </TabsContent>
         </Tabs>
       </div>
