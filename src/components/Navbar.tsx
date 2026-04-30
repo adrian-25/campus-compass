@@ -21,6 +21,7 @@ export const Navbar = () => {
   const links = [
     { to: "/", label: "Colleges", end: true },
     { to: "/compare", label: "Compare", badge: count },
+    { to: "/predictor", label: "Predictor" },
     { to: "/saved", label: "Saved", icon: Bookmark },
   ];
 

@@ -1,0 +1,31 @@
+alter table public.colleges add column if not exists jee_min_rank int;
+alter table public.colleges add column if not exists jee_max_rank int;
+alter table public.colleges add column if not exists cat_min_percentile float;
+alter table public.colleges add column if not exists cat_max_percentile float;
+
+update public.colleges set jee_min_rank = 1, jee_max_rank = 100 where name = 'IIT Bombay';
+update public.colleges set jee_min_rank = 1, jee_max_rank = 150 where name = 'IIT Delhi';
+update public.colleges set jee_min_rank = 1, jee_max_rank = 200 where name = 'IIT Madras';
+update public.colleges set jee_min_rank = 1, jee_max_rank = 250 where name = 'IIT Kharagpur';
+update public.colleges set jee_min_rank = 1, jee_max_rank = 300 where name = 'IIT Roorkee';
+update public.colleges set jee_min_rank = 500, jee_max_rank = 3000 where name = 'BITS Pilani';
+update public.colleges set jee_min_rank = 1000, jee_max_rank = 5000 where name = 'NIT Trichy';
+update public.colleges set jee_min_rank = 2000, jee_max_rank = 8000 where name = 'NIT Warangal';
+update public.colleges set jee_min_rank = 2000, jee_max_rank = 9000 where name = 'NIT Surathkal';
+update public.colleges set jee_min_rank = 3000, jee_max_rank = 12000 where name = 'Delhi Technological University';
+update public.colleges set jee_min_rank = 5000, jee_max_rank = 20000 where name = 'VIT Vellore';
+update public.colleges set jee_min_rank = 5000, jee_max_rank = 25000 where name = 'Manipal Institute of Technology';
+update public.colleges set jee_min_rank = 5000, jee_max_rank = 22000 where name = 'Thapar Institute of Engineering';
+update public.colleges set jee_min_rank = 8000, jee_max_rank = 30000 where name = 'SRM Institute of Science and Technology';
+update public.colleges set jee_min_rank = 8000, jee_max_rank = 35000 where name = 'RV College of Engineering';
+update public.colleges set jee_min_rank = 3000, jee_max_rank = 15000 where name = 'Jadavpur University';
+update public.colleges set jee_min_rank = 5000, jee_max_rank = 18000 where name = 'PSG College of Technology';
+update public.colleges set jee_min_rank = 10000, jee_max_rank = 50000 where name = 'Amity University';
+update public.colleges set jee_min_rank = 10000, jee_max_rank = 50000 where name = 'Symbiosis Institute of Technology';
+update public.colleges set jee_min_rank = 10000, jee_max_rank = 50000 where name = 'Christ University';
+
+update public.colleges set cat_min_percentile = 99, cat_max_percentile = 100 where type = 'Government' and name like 'IIT%';
+update public.colleges set cat_min_percentile = 95, cat_max_percentile = 100 where name = 'BITS Pilani';
+update public.colleges set cat_min_percentile = 90, cat_max_percentile = 99 where name in ('NIT Trichy', 'NIT Warangal', 'NIT Surathkal');
+update public.colleges set cat_min_percentile = 85, cat_max_percentile = 95 where name in ('VIT Vellore', 'Manipal Institute of Technology', 'Thapar Institute of Engineering');
+update public.colleges set cat_min_percentile = 75, cat_max_percentile = 90 where name in ('Amity University', 'Christ University', 'Symbiosis Institute of Technology', 'SRM Institute of Science and Technology');

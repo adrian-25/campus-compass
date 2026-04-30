@@ -17,12 +17,16 @@ export type Database = {
       colleges: {
         Row: {
           affiliation: string | null
+          cat_max_percentile: number | null
+          cat_min_percentile: number | null
           city: string
           created_at: string
           established: number | null
           fees_per_year: number
           id: string
           image_url: string | null
+          jee_max_rank: number | null
+          jee_min_rank: number | null
           name: string
           rating: number
           state: string
@@ -31,12 +35,16 @@ export type Database = {
         }
         Insert: {
           affiliation?: string | null
+          cat_max_percentile?: number | null
+          cat_min_percentile?: number | null
           city: string
           created_at?: string
           established?: number | null
           fees_per_year: number
           id?: string
           image_url?: string | null
+          jee_max_rank?: number | null
+          jee_min_rank?: number | null
           name: string
           rating: number
           state: string
@@ -45,12 +53,16 @@ export type Database = {
         }
         Update: {
           affiliation?: string | null
+          cat_max_percentile?: number | null
+          cat_min_percentile?: number | null
           city?: string
           created_at?: string
           established?: number | null
           fees_per_year?: number
           id?: string
           image_url?: string | null
+          jee_max_rank?: number | null
+          jee_min_rank?: number | null
           name?: string
           rating?: number
           state?: string
